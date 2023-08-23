@@ -1,14 +1,15 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use pyo3::prelude::*;
+use pyo3::wrap_pyfunction;
+
+#[pymodule]
+fn go_gym(py: Python, m: &PyModule) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(example_function, m)?)?;
+    Ok(())
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[pyfunction]
+fn example_function() -> PyResult<String> {
+    Ok("Hello from Rust!".to_string())
 }
+
+
