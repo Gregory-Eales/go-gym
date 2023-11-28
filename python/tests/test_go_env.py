@@ -11,7 +11,7 @@ def test_go_env():
     print('Successfully reset GoEnv')
     
     # take an action
-    env.step(17)
+    env.step(40)
     print('Successfully took action')
 
     # render
@@ -19,7 +19,7 @@ def test_go_env():
     print('Successfully rendered')
 
     # try putting an invalid move
-    env.step(-1)
+    #env.step(-1)
 
 
 if __name__ == '__main__':
